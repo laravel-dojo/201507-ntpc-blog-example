@@ -138,7 +138,12 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Application Service Providers...
+         * Package Service Providers
+         */
+        Gvb\Whoops\ServiceProvider::class,
+
+        /*
+         * Application Service Providers
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\EventServiceProvider::class,
