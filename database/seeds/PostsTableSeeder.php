@@ -13,11 +13,13 @@ class PostsTableSeeder extends Seeder
     {
     	\App\Post::truncate();
 
+    	$faker = \Faker\Factory::create('zh_TW');
+
         foreach(range(1, 20) as $id) {
         	\App\Post::create([
-        		'title' => '假文章標題 - '.$id,
-        		'sub_title' => '假文章副標題',
-        		'content' => '假文章內容',
+        		'title' => $faker->sentence,
+        		'sub_title' => $faker->sentence,
+        		'content' => $faker->paragraph,
         		'is_feature' => rand(0, 1),
         		'page_view' => rand(0, 200),
         		'created_at' => Carbon\Carbon::now()->subDays(20 - $id),
