@@ -11,6 +11,8 @@ class CommentsTableSeeder extends Seeder
      */
     public function run()
     {
+    	\App\Comment::truncate();
+
         foreach(range(1, 20) as $id) {
         	\App\Comment::create([
         		'name' => '假留言者 - '.$id,

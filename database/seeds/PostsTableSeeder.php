@@ -11,6 +11,8 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
+    	\App\Post::truncate();
+
         foreach(range(1, 20) as $id) {
         	\App\Post::create([
         		'title' => '假文章標題 - '.$id,
