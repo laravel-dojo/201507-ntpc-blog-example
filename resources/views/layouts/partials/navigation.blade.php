@@ -9,23 +9,23 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            <a class="navbar-brand" href="{{ route('home.index') }}">偽 Blog 平台</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="index.html">Home</a>
+                    <a href="{{ route('about.index') }}">關於本站</a>
                 </li>
                 <li>
-                    <a href="about.html">About</a>
+                    <a href="{{ route('posts.index') }}">文章總覽</a>
                 </li>
                 <li>
-                    <a href="post.html">Sample Post</a>
+                    <a href="{{ route('posts.hot') }}">熱門文章</a>
                 </li>
                 <li>
-                    <a href="contact.html">Contact</a>
+                    <a href="{{ route('posts.random') }}">隨機文章</a>
                 </li>
             </ul>
         </div>
