@@ -11,4 +11,9 @@ class Comment extends Model
     	'email',
     	'content',
     ];
+
+    public function post()
+    {
+    	$this->belongsTo('\App\Post');
+    }
 }

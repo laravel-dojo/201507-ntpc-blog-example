@@ -13,4 +13,9 @@ class Post extends Model
     	'is_feature',
     	'page_view',
     ];
+
+    public function comments()
+    {
+    	return $this->hasMany('\App\Comment');
+    }
 }
