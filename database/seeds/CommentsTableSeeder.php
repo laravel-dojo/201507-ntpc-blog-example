@@ -18,6 +18,9 @@ class CommentsTableSeeder extends Seeder
         		'name' => '假留言者 - '.$id,
         		'email' => 'fake@fake-email.com',
         		'content' => '假回覆內容',
+        		'post_id' => rand(1, 20),
+        		'created_at' => Carbon\Carbon::now()->subDays(20 - $id),
+        		'updated_at' => Carbon\Carbon::now()->subDays(20 - $id),
         	]);
         }
     }

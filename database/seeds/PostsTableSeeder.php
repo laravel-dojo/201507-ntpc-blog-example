@@ -18,8 +18,10 @@ class PostsTableSeeder extends Seeder
         		'title' => '假文章標題 - '.$id,
         		'sub_title' => '假文章副標題',
         		'content' => '假文章內容',
-        		'is_feature' => false,
-        		'page_view' => 10,
+        		'is_feature' => rand(0, 1),
+        		'page_view' => rand(0, 200),
+        		'created_at' => Carbon\Carbon::now()->subDays(20 - $id),
+        		'updated_at' => Carbon\Carbon::now()->subDays(20 - $id),
         	]);
         }
     }
