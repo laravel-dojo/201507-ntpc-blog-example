@@ -38,11 +38,19 @@ Route::get('hot', ['as' => 'posts.hot', function() {
 }]);
 
 Route::get('random', ['as' => 'posts.random', function() {
-    return view('posts.show');
+
+    $id = rand(1, 10);
+
+    $data = compact('id');
+
+    return view('posts.show', $data);
 }]);
 
 Route::get('posts/{id}', ['as' => 'posts.show', function($id) {
-    return view('posts.show');
+    
+    $data = compact('id');
+
+    return view('posts.show', $data);
 }]);
 
 Route::get('posts/create', ['as' => 'posts.create', function() {
@@ -54,7 +62,10 @@ Route::post('posts', ['as' => 'posts.store', function() {
 }]);
 
 Route::get('posts/{id}/edit', ['as' => 'posts.edit', function($id) {
-    return  view('posts.edit');
+
+    $data = compact('id');
+
+    return  view('posts.edit', $data);
 }]);
 
 Route::patch('posts/{id}', ['as' => 'posts.update', function($id) {
