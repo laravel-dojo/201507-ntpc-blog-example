@@ -22,31 +22,31 @@ Route::pattern('id', '[0-9]+');
 */
 
 Route::get('/', ['as' => 'home.index', function() {
-    return 'home.index';
+    return view('index');
 }]);
 
 Route::get('about', ['as' => 'about.index', function() {
-    return 'about.index';
+    return view('about');
 }]);
 
 Route::get('posts', ['as' => 'posts.index', function() {
-    return 'posts.index';
+    return view('index');
 }]);
 
 Route::get('hot', ['as' => 'posts.hot', function() {
-    return 'posts.hot';
+    return view('index');
 }]);
 
 Route::get('random', ['as' => 'posts.random', function() {
-    return 'posts.random';
+    return view('post');
 }]);
 
 Route::get('posts/{id}', ['as' => 'posts.show', function($id) {
-    return 'posts.show: '.$id;
+    return view('post');
 }]);
 
 Route::get('posts/create', ['as' => 'posts.create', function() {
-    return 'posts.create';
+    return view('contact');
 }]);
 
 Route::post('posts', ['as' => 'posts.store', function() {
@@ -54,7 +54,7 @@ Route::post('posts', ['as' => 'posts.store', function() {
 }]);
 
 Route::get('posts/{id}/edit', ['as' => 'posts.edit', function($id) {
-    return 'posts.edit: '.$id;
+    return  view('contact');
 }]);
 
 Route::patch('posts/{id}', ['as' => 'posts.update', function($id) {
