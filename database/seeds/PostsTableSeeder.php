@@ -13,18 +13,6 @@ class PostsTableSeeder extends Seeder
     {
     	\App\Post::truncate();
 
-    	$faker = \Faker\Factory::create('zh_TW');
-
-        foreach(range(1, 20) as $id) {
-        	\App\Post::create([
-        		'title' => $faker->sentence,
-        		'sub_title' => $faker->sentence,
-        		'content' => $faker->paragraph,
-        		'is_feature' => rand(0, 1),
-        		'page_view' => rand(0, 200),
-        		'created_at' => Carbon\Carbon::now()->subDays(20 - $id),
-        		'updated_at' => Carbon\Carbon::now()->subDays(20 - $id),
-        	]);
-        }
+    	factory(\App\Post::class, 20)->create();
     }
 }
