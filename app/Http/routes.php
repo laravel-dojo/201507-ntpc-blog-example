@@ -44,3 +44,6 @@ Route::get('auth/login' , ['as' => 'login.index'  , 'uses' => 'Auth\AuthControll
 Route::post('auth/login', ['as' => 'login.process', 'uses' => 'Auth\AuthController@postLogin']);
 
 Route::get('auth/logout', ['as' => 'logout.process', 'uses' => 'Auth\AuthController@getLogout']);
+
+Route::get('password/email' , ['as' => 'forgetpassword.index'  , 'uses' => 'Auth\PasswordController@getEmail']);
+Route::post('password/email', ['as' => 'forgetpassword.process', 'uses' => 'Auth\PasswordController@postEmail']);

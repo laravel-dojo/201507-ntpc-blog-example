@@ -54,6 +54,7 @@
                 <div class="row">
                     <div class="form-group col-xs-12">
                         {!! Form::submit('登入', ['class' => 'btn btn-primary']) !!}
+                        <a href="{{ route('forgetpassword.index') }}" class="btn btn-success">忘記密碼</a>
                     </div>
                 </div>
             {!! Form::close() !!}
