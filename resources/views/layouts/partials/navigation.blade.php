@@ -27,6 +27,9 @@
                 <li>
                     <a href="{{ route('posts.random') }}">隨機文章</a>
                 </li>
+                <li>
+                    <a href="{{ route('register.index') }}">註冊</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
