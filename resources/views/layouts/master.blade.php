@@ -46,7 +46,7 @@
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="{{ asset('js/clean-blog.min.js') }}"></script>
+    <script src="{{ asset('js/clean-blog.js') }}"></script>
 
 </body>
 

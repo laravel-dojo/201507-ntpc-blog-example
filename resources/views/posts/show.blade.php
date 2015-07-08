@@ -24,6 +24,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+                <div class="text-right" style="margin-bottom: 50px;">
+                    <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary" role="button">編輯</a>
+                </div>
+
                 <div style="margin-bottom: 30px;">
                     {!! $post->content !!}
                 </div>
@@ -31,12 +36,19 @@
                 <!-- Comments Form -->
                 <div class="well">
                     <h4>留下您的意見：</h4>
-                    <form role="form">
+                    {!! Form::open(['route' => ['posts.comment', $post->id], 'method' => 'post', 'role' => 'form']) !!}
                         <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
+                            {!! Form::label('name', '姓名：') !!}
+                            {!! Form::text('name', null, ['id' => 'name', 'class' => 'form-control', 'required']) !!}
+
+                            {!! Form::label('email', 'Email：') !!}
+                            {!! Form::email('email', null, ['id' => 'email', 'class' => 'form-control', 'required']) !!}
+
+                            {!! Form::label('content', '內文：') !!}
+                            {!! Form::textarea('content', null, ['rows' => 3, 'id' => 'content', 'class' => 'form-control', 'required']) !!}
                         </div>
-                        <button type="submit" class="btn btn-primary">送出</button>
-                    </form>
+                        {!! Form::submit('送出', ['class' => 'btn btn-primary']) !!}
+                    {!! Form::close() !!}
                 </div>
 
                 <hr>

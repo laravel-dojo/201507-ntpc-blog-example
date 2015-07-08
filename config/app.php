@@ -142,6 +142,7 @@ return [
          */
         Gvb\Whoops\ServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
         /*
          * Application Service Providers
@@ -202,6 +203,8 @@ return [
          * Package Alias
          */
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Form'     => Collective\Html\FormFacade::class,
+        'Html'     => Collective\Html\HtmlFacade::class,
 
     ],
 

@@ -66,7 +66,9 @@ class PostsController extends Controller
 
     public function edit($id)
     {
-        $data = compact('id');
+        $post = \App\Post::find($id);
+
+        $data = compact('post');
 
         return view('posts.edit', $data);
     }
