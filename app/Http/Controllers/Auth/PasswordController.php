@@ -21,6 +21,7 @@ class PasswordController extends Controller
     use ResetsPasswords;
 
     protected $subject = '您的密碼重設連結';
+    protected $redirectPath = '/';
 
     /**
      * Create a new password controller instance.

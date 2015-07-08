@@ -47,3 +47,6 @@ Route::get('auth/logout', ['as' => 'logout.process', 'uses' => 'Auth\AuthControl
 
 Route::get('password/email' , ['as' => 'forgetpassword.index'  , 'uses' => 'Auth\PasswordController@getEmail']);
 Route::post('password/email', ['as' => 'forgetpassword.process', 'uses' => 'Auth\PasswordController@postEmail']);
+
+Route::get('password/reset/{token}', ['as' => 'resetpassword.index'  , 'uses' => 'Auth\PasswordController@getReset']);
+Route::post('password/reset'       , ['as' => 'resetpassword.process', 'uses' => 'Auth\PasswordController@postReset']);
