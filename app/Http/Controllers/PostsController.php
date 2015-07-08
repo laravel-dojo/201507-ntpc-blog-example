@@ -25,7 +25,8 @@ class PostsController extends Controller
     {
         $postType = '熱門文章';
 
-        $posts = \App\Post::orderBy('page_view', 'desc')
+        $posts = \App\Post::where('page_view', '>=', 100)
+                          ->orderBy('page_view', 'desc')
                           ->orderBy('created_at', 'desc')
                           ->get();
 
@@ -60,6 +61,9 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = \App\Post::find($id);
+
+        $post->page_view += 1;
+        $post->save();
 
         $data = compact('post');
 
