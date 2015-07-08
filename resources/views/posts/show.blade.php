@@ -27,6 +27,9 @@
 
                 <div class="text-right" style="margin-bottom: 50px;">
                     <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary" role="button">編輯</a>
+                    {!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'delete', 'style' => 'display: inline;']) !!}
+                        {!! Form::submit('刪除', ['class' => 'btn btn-danger']) !!}
+                    {!! Form::close() !!}
                 </div>
 
                 <div style="margin-bottom: 30px;">
