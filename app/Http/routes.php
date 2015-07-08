@@ -42,3 +42,5 @@ Route::post('auth/register', ['as' => 'register.process', 'uses' => 'Auth\AuthCo
 
 Route::get('auth/login' , ['as' => 'login.index'  , 'uses' => 'Auth\AuthController@getLogin']);
 Route::post('auth/login', ['as' => 'login.process', 'uses' => 'Auth\AuthController@postLogin']);
+
+Route::get('auth/logout', ['as' => 'logout.process', 'uses' => 'Auth\AuthController@getLogout']);

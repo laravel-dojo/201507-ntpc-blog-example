@@ -33,6 +33,9 @@
                 <li>
                     <a href="{{ route('login.index') }}">登入</a>
                 </li>
+                <li>
+                    <a href="{{ route('logout.process') }}">登出</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
