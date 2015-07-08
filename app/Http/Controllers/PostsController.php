@@ -14,7 +14,7 @@ class PostsController extends Controller
         $postType = '文章總覽';
 
         $posts = \App\Post::orderBy('created_at', 'desc')
-                          ->get();
+                          ->paginate(5);
 
         $data = compact('postType', 'posts');
 
@@ -28,7 +28,7 @@ class PostsController extends Controller
         $posts = \App\Post::where('page_view', '>=', 100)
                           ->orderBy('page_view', 'desc')
                           ->orderBy('created_at', 'desc')
-                          ->get();
+                          ->paginate(5);
 
         $data = compact('postType', 'posts');
 
