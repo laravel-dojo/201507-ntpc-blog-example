@@ -30,6 +30,9 @@
                 <li>
                     <a href="{{ route('register.index') }}">註冊</a>
                 </li>
+                <li>
+                    <a href="{{ route('login.index') }}">登入</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->

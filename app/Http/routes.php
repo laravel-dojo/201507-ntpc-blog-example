@@ -39,3 +39,6 @@ Route::get('random', ['as' => 'posts.random', 'uses' => 'PostsController@random'
 
 Route::get('auth/register' , ['as' => 'register.index'  , 'uses' => 'Auth\AuthController@getRegister']);
 Route::post('auth/register', ['as' => 'register.process', 'uses' => 'Auth\AuthController@postRegister']);
+
+Route::get('auth/login' , ['as' => 'login.index'  , 'uses' => 'Auth\AuthController@getLogin']);
+Route::post('auth/login', ['as' => 'login.process', 'uses' => 'Auth\AuthController@postLogin']);
