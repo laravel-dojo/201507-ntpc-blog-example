@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', '文章詳細頁')
+@section('title', $post->title)
 
 @section('content')
 <!-- Page Header -->
@@ -10,9 +10,9 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>文章標題 {{ $id }}</h1>
-                    <h2 class="subheading">文章副標題</h2>
-                    <span class="meta">由 <a href="#">Start Bootstrap</a> 發表於 August 24, 2014</span>
+                    <h1>{{ $post->title }}</h1>
+                    <h2 class="subheading">{{ $post->sub_title }}</h2>
+                    <span class="meta">由 <a href="#">Start Bootstrap</a> 發表於 {{ $post->created_at->toDateString() }}</span>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div style="margin-bottom: 30px;">
-                    文章內容…
+                    {!! $post->content !!}
                 </div>
 
                 <!-- Comments Form -->
@@ -42,13 +42,13 @@
                 <hr>
 
                 <!-- Posted Comments -->
-                @foreach(range(1, rand(1, 10)) as $id)
+                @foreach($post->comments as $comment)
                 <div class="media">
                     <div class="media-body">
-                        <h4 class="media-heading">姓名 (Email)
-                            <small>August 25, 2014 at 9:30 PM</small>
+                        <h4 class="media-heading">{{ $comment->name }} ({{ $comment->email }})
+                            <small>{{ $comment->created_at->toDateString() }}</small>
                         </h4>
-                        留言回覆內容 {{ $id }}
+                        {!! $comment->content !!}
                     </div>
                 </div>
                 @endforeach

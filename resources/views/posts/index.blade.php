@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', '文章列表')
+@section('title', $postType)
 
 @section('content')
 <!-- Page Header -->
@@ -10,9 +10,9 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="site-heading">
-                    <h1>文章列表</h1>
+                    <h1>{{ $postType }}</h1>
                     <hr class="small">
-                    <span class="subheading">歡迎瀏覽本平台文章</span>
+                    <span class="subheading">歡迎瀏覽{{ $postType }}</span>
                 </div>
             </div>
         </div>
@@ -24,17 +24,17 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-            @foreach(range(1, 5) as $id)
+            @foreach($posts as $post)
             <div class="post-preview">
-                <a href="{{ route('posts.show', $id) }}">
+                <a href="{{ route('posts.show', $post->id) }}">
                     <h2 class="post-title">
-                        文章標題 {{ $id }}
+                        {{ $post->title }}
                     </h2>
                     <h3 class="post-subtitle">
-                        文章副標題
+                        {{ $post->sub_title }}
                     </h3>
                 </a>
-                <p class="post-meta">由 <a href="#">Start Bootstrap</a> 發表於 September 24, 2014</p>
+                <p class="post-meta">由 <a href="#">Start Bootstrap</a> 發表於 {{ $post->created_at->toDateString() }}</p>
             </div>
             <hr>
             @endforeach
