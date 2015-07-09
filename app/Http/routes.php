@@ -37,6 +37,9 @@ Route::post('posts/{id}/comment', ['as' => 'posts.comment', 'uses' => 'PostsCont
 Route::get('hot'   , ['as' => 'posts.hot'   , 'uses' => 'PostsController@hot']);
 Route::get('random', ['as' => 'posts.random', 'uses' => 'PostsController@random']);
 
+Route::get('my'             , ['as' => 'posts.my'  , 'uses' => 'PostsController@my']);
+Route::get('posts/user/{id}', ['as' => 'posts.user', 'uses' => 'PostsController@user']);
+
 Route::get('auth/register' , ['as' => 'register.index'  , 'uses' => 'Auth\AuthController@getRegister']);
 Route::post('auth/register', ['as' => 'register.process', 'uses' => 'Auth\AuthController@postRegister']);
 

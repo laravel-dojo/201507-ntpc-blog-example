@@ -8,6 +8,11 @@ use App\Http\Requests\PostRequest;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['only' => ['my', 'create', 'store', 'edit', 'update', 'destroy']]);
+    }
+
     public function index()
     {
         $postType = '文章總覽';
@@ -46,6 +51,39 @@ class PostsController extends Controller
         $data = compact('post');
 
         return view('posts.show', $data);
+    }
+
+    public function my()
+    {
+        $postType = '我的文章';
+
+        $posts = \App\Post::where('user_id', \Auth::user()->id)
+                          ->orderBy('created_at', 'desc')
+                          ->paginate(5);
+
+        $data = compact('postType', 'posts');
+
+        return view('posts.index', $data);
+    }
+
+    public function user($id)
+    {
+        $user = \App\User::find($id);
+
+        if (is_null($user)) {
+            return redirect()->route('posts.index')
+                             ->with('warning', '沒有這個使用者的文章');
+        }
+
+        $postType = $user->name.'的文章';
+
+        $posts = \App\Post::where('user_id', $user->id)
+                          ->orderBy('created_at', 'desc')
+                          ->paginate(5);
+
+        $data = compact('postType', 'posts');
+
+        return view('posts.index', $data);
     }
 
     public function create()
@@ -87,6 +125,11 @@ class PostsController extends Controller
                              ->with('warning', '找不到該文章');
         }
 
+        if ($post && $post->user->id != \Auth::user()->id) {
+            return redirect()->route('posts.index')
+                             ->with('warning', '您沒有權限編輯這篇文章');
+        }
+
         $data = compact('post');
 
         return view('posts.edit', $data);
@@ -111,6 +154,16 @@ class PostsController extends Controller
     {
         $post = \App\Post::find($id);
 
+        if (is_null($post)) {
+            return redirect()->route('posts.index')
+                             ->with('warning', '找不到該文章');
+        }
+
+        if ($post && $post->user->id != \Auth::user()->id) {
+            return redirect()->route('posts.index')
+                             ->with('warning', '您沒有權限刪除這篇文章');
+        }
+
         foreach($post->comments as $comment) {
             $comment->delete();
         }
@@ -123,7 +176,7 @@ class PostsController extends Controller
 
     public function comment($id, CommentRequest $request)
     {
-        $post    = \App\Post::find($id);
+        $post = \App\Post::find($id);
         
         if (is_null($post)) {
             return redirect()->route('posts.index')

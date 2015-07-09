@@ -27,15 +27,21 @@
                 <li>
                     <a href="{{ route('posts.random') }}">隨機文章</a>
                 </li>
+                @if (Auth::check())
+                <li>
+                    <a href="{{ route('posts.my') }}">我的文章</a>
+                </li>
+                <li>
+                    <a href="{{ route('logout.process') }}">登出</a>
+                </li>
+                @else
                 <li>
                     <a href="{{ route('register.index') }}">註冊</a>
                 </li>
                 <li>
                     <a href="{{ route('login.index') }}">登入</a>
                 </li>
-                <li>
-                    <a href="{{ route('logout.process') }}">登出</a>
-                </li>
+                @endif
             </ul>
         </div>
         <!-- /.navbar-collapse -->

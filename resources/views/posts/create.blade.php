@@ -56,6 +56,9 @@
                         <p class="help-block text-danger" style="color: red;">{!! $errors->first('is_feature') !!}</p>
                     </div>
                 </div>
+
+                {!! Form::hidden('user_id', Auth::user()->id) !!}
+
                 <br>
                 <div id="success"></div>
                 <div class="row">
