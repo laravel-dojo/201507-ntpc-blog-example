@@ -63,6 +63,10 @@
                     </div>
                 </div>
             {!! Form::close() !!}
+
+            {!! Form::open(['route' => 'openid.redirect', 'method' => 'post']) !!}
+                {!! Form::submit('OpenID 登入', ['class' => 'btn btn-warning']) !!}
+            {!! Form::close() !!}
         </div>
     </div>
 </div>

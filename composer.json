@@ -10,7 +10,8 @@
         "guidovanbiemen/laravel-whoops": "^1.0",
         "barryvdh/laravel-debugbar": "^2.0",
         "doctrine/dbal": "^2.5",
-        "laravelcollective/html": "^5.1"
+        "laravelcollective/html": "^5.1",
+        "kounta/lightopenid": "^0.7"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

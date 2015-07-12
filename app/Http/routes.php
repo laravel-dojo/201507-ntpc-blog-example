@@ -53,3 +53,6 @@ Route::post('password/email', ['as' => 'forgetpassword.process', 'uses' => 'Auth
 
 Route::get('password/reset/{token}', ['as' => 'resetpassword.index'  , 'uses' => 'Auth\PasswordController@getReset']);
 Route::post('password/reset'       , ['as' => 'resetpassword.process', 'uses' => 'Auth\PasswordController@postReset']);
+
+Route::get('auth/openid' , ['as' => 'openid.process' , 'uses' => 'Auth\OpenIdController@process']);
+Route::post('auth/openid', ['as' => 'openid.redirect', 'uses' => 'Auth\OpenIdController@redirect']);
